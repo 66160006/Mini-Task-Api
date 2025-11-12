@@ -2,7 +2,7 @@ const UserModel = require('../models/user.model');
 
 exports.getMe = async (req, res) => {
   try {
-    // req.user.userId มาจาก authenticate middleware
+    
     const user = await UserModel.findById(req.user.userId);
     if (!user) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'User not found' } });
     res.json(user);

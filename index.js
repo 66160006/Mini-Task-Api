@@ -12,11 +12,12 @@ app.use(express.json());
 const authRoutes = require('./src/routes/v1/auth.routes');
 const taskRoutes = require('./src/routes/v1/task.routes');
 const userRoutes = require('./src/routes/v1/user.routes');
+const taskRoutesV2 = require('./src/routes/v2/task.routes');
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/tasks', taskRoutes);
 app.use('/api/v1/users', userRoutes);
-
+app.use('/api/v2/tasks', taskRoutesV2);
 
 app.get('/api/v1/test', (req, res) => {
   res.json({ message: `API is working on port ${port}!` });
